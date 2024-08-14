@@ -23,9 +23,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn
-    - run: yarn build
+        cache: 'npm'
+    - run: npm
+    - run: npm run build
     - uses: ad-m/github-push-action@v0.6.0
       with:
     # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
