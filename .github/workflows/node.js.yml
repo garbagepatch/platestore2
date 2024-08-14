@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn 
-    - run: yarn build
+    - run: yarn build:admin
      
     - uses: actions/upload-artifact@v4.3.6
       with:
@@ -35,7 +35,7 @@ jobs:
     - uses: actions/deploy-pages@v4.0.5
       with:
     # GitHub token
-        token: ${{ github.token }}
+        token: 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
     # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
      
     # Maximum number of status report errors before cancelling a deployment (default: 10)
