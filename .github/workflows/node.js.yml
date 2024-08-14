@@ -1,0 +1,53 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+permissions:
+  id-token: write
+  pages: write
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn 
+    - run: yarn build
+    - uses: actions/upload-artifact@v4
+      with:
+    # A file, directory or wildcard pattern that describes what to upload
+        path: .*
+    # The desired behavior if no files are 
+    - uses: actions/deploy-pages@v4.0.5
+      with:
+    # GitHub token
+        token: ${{secrets.GITHUB_TOKEN}}
+    # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
+     
+    # Maximum number of status report errors before cancelling a deployment (default: 10)
+  
+    # Name of the artifact to deploy
+        artifact_name: artifact
+    # Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)
+       
+          
+     
+          
+ 
+
+          
+    
