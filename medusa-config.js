@@ -52,7 +52,7 @@ const plugins = [
 
      serve: false,
       autoRebuild: false,
-      backend: "141.148.90.88:9000",
+      backend: "backend.veridiansea.xyz",
       path: "/app",
       outDir: "build",
       develop: {
